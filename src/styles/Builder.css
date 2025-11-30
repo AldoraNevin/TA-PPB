@@ -19,6 +19,22 @@
   gap: 12px;
 }
 
+/* Selected champion indicator for mobile tap-to-place */
+.selected-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(20,24,36,0.85);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.selected-indicator strong { color: #f7c948 }
+
 .btn {
   background: #1a1d2c;
   border: 1px solid rgba(255,255,255,0.06);

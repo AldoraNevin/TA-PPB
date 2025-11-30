@@ -16,6 +16,7 @@ export default function Builder() {
   const [championDB, setChampionDB] = useState([]);
   const [placed, setPlaced] = useState({});
   const [dragOverIdx, setDragOverIdx] = useState(null);
+  const [selectedChamp, setSelectedChamp] = useState(null); // mobile tap-to-select fallback
   const [showNames, setShowNames] = useState(true);
   const [search, setSearch] = useState("");
 
@@ -183,6 +184,19 @@ export default function Builder() {
 
         <div className="board-panel">
           <div className="board-wrapper">
+            {/* Mobile: show currently selected champion for placement */}
+            {selectedChamp && (
+              <div className="selected-indicator">
+                Tap a hex to place: <strong>{selectedChamp.name}</strong>
+                <button
+                  className="btn small"
+                  onClick={() => setSelectedChamp(null)}
+                  style={{ marginLeft: 12 }}
+                >
+                  Cancel
+                </button>
+              </div>
+            )}
             {Array.from({ length: rows }).map((_, r) => (
               <div
                 key={r}
@@ -206,6 +220,13 @@ export default function Builder() {
                       }}
                       onDragLeave={() => setDragOverIdx(null)}
                       onDrop={(e) => onDropToCell(e, idx)}
+                      onClick={() => {
+                        // tap-to-place fallback for mobile
+                        if (selectedChamp) {
+                          setPlaced((prev) => ({ ...prev, [idx]: selectedChamp }));
+                          setSelectedChamp(null);
+                        }
+                      }}
                     >
                       <div className="hex-inner">
                         {champ ? (
@@ -221,6 +242,18 @@ export default function Builder() {
                               });
                             }}
                             className="placed-champ"
+                            onClick={(e) => {
+                              // allow tap on placed champ to pick it up on mobile
+                              if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) {
+                                e.stopPropagation();
+                                setSelectedChamp(champ);
+                                setPlaced((p) => {
+                                  const n = { ...p };
+                                  delete n[idx];
+                                  return n;
+                                });
+                              }
+                            }}
                           >
                             <img src={champ.url} alt={champ.name} />
                             {showNames && (
@@ -266,6 +299,13 @@ export default function Builder() {
               className="champ-item"
               draggable
               onDragStart={(e) => onDragStartFromList(e, ch)}
+              onTouchStart={() => setSelectedChamp(ch)}
+              onClick={(e) => {
+                // on mobile, allow tap-to-select
+                if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) {
+                  setSelectedChamp(ch);
+                }
+              }}
             >
               <div className="thumb">
                 <img src={ch.url} alt={ch.name} />
