@@ -1,0 +1,282 @@
+/* ==============================
+   PROFILE PAGE CONTAINER
+   ============================== */
+.profile-page {
+  padding: 32px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
+.profile-header {
+  background: #11141d;
+  padding: 22px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Avatar wrapper */
+.avatar-upload {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  transition: 0.2s ease;
+}
+
+.avatar-upload:hover .profile-avatar {
+  opacity: 0.7;
+  transform: scale(1.04);
+  cursor: pointer;
+}
+
+/* Username input */
+.profile-edit-name {
+  background: #1a1f29;
+  border: 1px solid #2a2f3d;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  width: 200px;
+  transition: 0.2s ease;
+}
+
+.profile-edit-name:focus {
+  outline: none;
+  border-color: #ffc842;
+  box-shadow: 0 0 0 2px rgba(255, 200, 66, 0.3);
+}
+
+.profile-joindate {
+  font-size: 14px;
+  color: #a0a4b8;
+  margin-top: 4px;
+}
+
+/* Save button */
+.save-btn {
+  margin-left: auto;
+  background: #44e27a;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  box-shadow: 0 0 12px rgba(68, 226, 122, 0.4);
+  transition: 0.2s ease;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  background: #4ef28a;
+}
+
+/* ==============================
+   STATS SECTION
+   ============================== */
+.profile-stats {
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+}
+
+.stat-box {
+  flex: 1;
+  background: #141821;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: 0.2s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-3px);
+  border-color: #ffc842;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffc842;
+}
+
+.stat-label {
+  opacity: 0.8;
+}
+
+/* ==============================
+   BUILDER LIST SECTION
+   ============================== */
+.section-title {
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* Build Grid */
+.build-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* Build Card */
+.build-card {
+  background: linear-gradient(135deg, #1a1e29 0%, #141821 100%);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: 0.25s;
+}
+
+.build-card:hover {
+  transform: translateY(-3px);
+  border-color: #ffc842;
+  box-shadow: 0 6px 20px rgba(255, 200, 66, 0.18);
+}
+
+/* Build Name */
+.build-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Sub text */
+.build-date {
+  font-size: 13px;
+  color: #aab0c2;
+  margin-bottom: 14px;
+}
+
+/* Load Button */
+.build-view-btn {
+  width: 100%;
+  padding: 10px;
+  background: #ffc842;
+  color: black;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.build-view-btn:hover {
+  background: #ffdb74;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   POST TO METAREAD BUTTON
+   ============================================ */
+.build-meta-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  background: #4ade80;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
+}
+
+.build-meta-btn:hover {
+  background: #6df799;
+  transform: translateY(-2px);
+}
+
+.build-meta-btn:disabled {
+  background: #2e2f33;
+  color: #9a9a9a;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Empty state */
+.empty {
+  padding: 22px;
+  text-align: center;
+  opacity: 0.7;
+  background: #161a24;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile-specific adjustments: show a compact mobile UI separate from desktop layout */
+@media (max-width: 640px) {
+  .profile-page {
+    padding: 16px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .profile-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+  }
+
+  .profile-edit-name {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .save-btn {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .profile-stats {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-box { padding: 14px }
+  .stat-number { font-size: 28px }
+
+  .section-title { font-size: 18px; margin-top: 20px }
+
+  .build-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Larger mobile / small tablet adjustments */
+@media (min-width: 641px) and (max-width: 900px) {
+  .profile-page { padding: 20px }
+  .profile-header { padding: 18px; gap: 16px }
+  .profile-avatar { width: 84px; height: 84px }
+  .build-list { grid-template-columns: repeat(2, 1fr) }
+}

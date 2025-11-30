@@ -1,0 +1,398 @@
+/* =====================================
+   PAGE BASE
+===================================== */
+
+.tierlist-page {
+  padding: 20px;
+  color: white;
+  font-family: "Teko", sans-serif;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tierlist-label {
+  font-size: 70px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.title-input {
+  font-size: 70px;
+  font-weight: 900;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #ffc842;
+  width: 100%;
+}
+
+/* =====================================
+   ACTION BUTTONS
+===================================== */
+
+.tierlist-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tierlist-actions .tool-btn {
+  background: #ffc842;
+  color: black;
+  border: none;
+  padding: 10px 14px;
+  font-size: 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.12s;
+}
+.tool-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+.tierlist-actions .tool-btn:hover {
+  color: #ffc842;
+
+  filter: brightness(0.85);
+}
+
+/* =====================================
+   LAYOUT
+===================================== */
+
+.tierlist-container {
+  display: flex;
+  gap: 20px;
+}
+
+.tierlist-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* =====================================
+   TIER ROW
+===================================== */
+
+.tier-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tier-label {
+  width: 80px;
+  height: 80px;
+  font-size: 52px;
+  font-weight: 900;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tier-box {
+  flex: 1;
+  min-height: 110px;
+  background: #0e0f13;
+  border-radius: 18px;
+  border: 4px solid;
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tier-champ {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #333;
+  cursor: grab;
+  transition: 0.1s;
+}
+
+.tier-champ:active {
+  cursor: grabbing;
+}
+
+.tier-champ:hover {
+  transform: scale(1.05);
+}
+
+/* =====================================
+   TOOLBOX
+===================================== */
+
+.toolbox {
+  width: 380px;
+  background: #11141c;
+  border: 2px solid #ffc842;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.toolbox-header {
+  background: #ffc842;
+  color: black;
+  text-align: center;
+  font-weight: 900;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  background: #1a1e27;
+  border: 1px solid #2c3244;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.toolbox {
+  width: 440px;
+  background: #11141c;
+  border-radius: 16px;
+  padding: 16px;
+  border: 2px solid #ffc842;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.toolbox-top {
+  background: #ffc842;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbox-title {
+  font-size: 24px;
+  font-weight: 900;
+  color: black;
+  margin-right: auto;
+}
+
+/* TOP BUTTONS */
+.toolbox-btn {
+  background: rgb(0, 0, 0);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.toolbox-btn:hover {
+  background: #e9e9e9;
+}
+
+.toolbox-tabs {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tab {
+  background: #ffc842;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #ffde85;
+}
+
+/* SEARCH */
+.search {
+  width: 100%;
+  padding: 12px;
+  background: #1a1e27;
+  border: 1px solid #2c3244;
+  border-radius: 10px;
+  color: white;
+}
+
+/* GRID */
+.champ-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 per row seperti screenshot */
+  gap: 6px;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.champ-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  border: 2px solid #333;
+  transition: 0.12s ease;
+}
+
+.champ-item img:hover {
+  transform: scale(1.06);
+  border-color: #ffc842;
+}
+
+/* =====================================
+   CHAMP GRID — TFTACTICS COMPACT STYLE
+===================================== */
+
+.toolbox .champ-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)) !important;
+  gap: 4px !important;
+  max-height: 620px !important;
+  overflow-y: auto !important;
+  padding: 4px !important;
+}
+
+/* kotak icon */
+.toolbox .champ-item {
+  width: 48px !important;
+  height: 48px !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* gambar champion */
+.toolbox .champ-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  border: 2px solid #1c1c1c !important;
+  transition: 0.12s ease-in-out !important;
+}
+
+/* hover */
+.toolbox .champ-item img:hover {
+  border-color: #6bf !important;
+  transform: scale(1.05) !important;
+}
+
+/* =====================================
+   POPUP SETTINGS
+===================================== */
+
+.tier-settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tier-settings {
+  width: 460px;
+  background: #0e0f13;
+  border: 2px solid #ffc842;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.tier-settings h2 {
+  color: #ffc842;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* icon options */
+.ts-section h3 {
+  margin: 10px 0;
+  color: white;
+}
+
+.ts-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.ts-icon-btn {
+  background: #111;
+  border: 2px solid #ffc842;
+  padding: 8px;
+  color: #ffc842;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* colors */
+.ts-colors {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.ts-color {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  cursor: pointer;
+}
+
+/* popup actions */
+.ts-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.delete-btn2,
+.clear-btn2 {
+  padding: 10px 20px;
+  background: #ffc842;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

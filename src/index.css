@@ -1,0 +1,263 @@
+/* Import a condensed display font for large headings (used in dashboard) */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Oswald', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background-color: #0A0D15; /* Latar belakang body agar sesuai dengan tema gelap */
+}
+
+/* Small utility to visually hide placeholder pages' back link on small screens */
+.page-back {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Builder hex/grid styles */
+.board-wrapper {
+    /* Latar belakang papan yang lebih gelap dan solid */
+    background: #141824; /* Warna gelap solid */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Border sedikit lebih terang */
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Bayangan lebih dalam untuk efek mengangkat */
+}
+
+/* Hex tile sizing and layout -- tuned for flat-top hex tiling */
+.hex {
+    --hex-w: 88px; 
+    --hex-h: 76px;
+    width: var(--hex-w);
+    height: var(--hex-h);
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.12); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    margin-right: -4px;
+}
+
+.hex:hover {
+    transform: translateY(-4px); /* Efek hover sedikit lebih kecil */
+    border-color: rgba(255, 255, 255, 0.15); /* Border sedikit lebih terang saat hover */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6); /* Bayangan hover lebih menonjol */
+}
+
+.hex-inner {
+    position: absolute;
+    inset: 1px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* BACKGROUND INI YANG PENTING: Disetel ke warna latar belakang papan agar terlihat menyatu */
+    background: #141824; /* Sesuaikan dengan background wrapper */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.hex img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Menambahkan sedikit border atau ring cahaya pada gambar juara */
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.hex.highlight {
+    border-color: #FACC15; /* Kuning terang untuk highlight */
+    box-shadow: 0 0 20px rgba(250, 200, 80, 0.5), 0 0 10px rgba(250, 200, 80, 0.2); /* Efek cahaya yang lebih kuat */
+}
+
+/* Bench styles: vertical list of hex thumbnails */
+.bench {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 6px;
+    max-height: 360px;
+    overflow-y: auto;
+    align-items: center;
+}
+
+.bench-hex {
+    width: 88px;
+    height: 80px;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(180deg, #1A1D2C, #0F121C); /* Gradien yang lebih gelap */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Border yang lebih jelas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.bench-hex img { width: 100%; height: 100%; object-fit: cover }
+
+.champ-grid { max-height: 220px; overflow-y: auto; padding-right: 8px }
+.champ-item {
+    /* Background item champion yang lebih gelap dan solid */
+    background: #1A1D2C;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px; /* Sudut sedikit lebih tumpul */
+    padding: 6px; /* Padding sedikit lebih kecil */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    transition: transform 100ms ease;
+}
+.champ-item .thumb {
+    width: 64px; /* Ukuran thumbnail lebih kecil */
+    height: 64px;
+    border-radius: 6px; /* Sudut thumbnail sedikit lebih tumpul */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* Bayangan thumbnail lebih menonjol */
+    border: 1px solid rgba(255, 255, 255, 0.12); /* Border thumbnail */
+}
+.champ-item:active { transform: scale(.96) } /* Efek active sedikit lebih kecil */
+
+/* small scrollbar for grid */
+.champ-grid::-webkit-scrollbar { height: 10px }
+.champ-grid::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 999px }
+
+
+/* Board wrapper decorative labels */
+.board-wrapper::before,
+.board-wrapper::after {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.4); /* Warna teks sedikit lebih redup */
+    font-weight: 700;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    letter-spacing: 3px; /* Jarak huruf sedikit lebih lebar */
+    font-size: 16px; /* Ukuran font sedikit lebih besar */
+    opacity: 0.8; /* Opasitas sedikit lebih tinggi */
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Sedikit bayangan teks */
+}
+.board-wrapper::after {
+    right: 12px;
+    left: auto;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 640px) {
+    :root {
+        --hex-w: 72px;
+        --hex-h: 64px;
+    }
+
+    .board-wrapper {
+        padding: 12px;
+    }
+
+    /* rows: smaller gaps and smaller overlap to match hex borders */
+    .hex-row {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: -12px;
+    }
+
+    .hex-row.hex-offset {
+        margin-left: 20px;
+    }
+
+    /* make bench horizontal on very small screens to save vertical space */
+    .bench {
+        flex-direction: row;
+        max-height: 96px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        align-items: flex-start;
+        padding: 6px;
+    }
+
+    .bench-hex {
+        width: 64px;
+        height: 56px;
+        border-width: 4px;
+    }
+
+    .champ-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .champ-item .thumb { width: 48px; height: 48px }
+
+    .profile-header { flex-direction: column; gap: 8px }
+    .profile-avatar { width: 64px; height: 64px }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+    :root {
+        --hex-w: 84px;
+        --hex-h: 76px;
+    }
+
+    .hex-row { gap: 10px; margin-bottom: -16px }
+    .hex-row.hex-offset { margin-left: 32px }
+    .bench { max-height: 300px }
+}
+
+/* Penyesuaian untuk teks "Board layout" dan "Clear board" */
+.text-slate-300 {
+    color: #A0AEC0; /* Warna teks yang sedikit lebih terang tapi tetap lembut */
+    font-size: 0.9rem;
+}
+
+.bg-red-600 {
+    background-color: #DC2626; /* Warna merah yang konsisten */
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    transition: background-color 150ms ease;
+}
+.bg-red-600:hover {
+    background-color: #EF4444;
+}
+
+/* Penyesuaian untuk input search dan tombol filter */
+.bg-slate-900\/60 {
+    background-color: #0F121C; /* Latar belakang input yang lebih gelap */
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #E2E8F0;
+    padding: 0.6rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+}
+.bg-slate-900\/60::placeholder {
+    color: #64748B;
+}
+
+.px-3.py-1.rounded-full.bg-yellow-400 {
+    background-color: #FACC15; /* Tombol aktif kuning */
+    color: #1A1D2C;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.px-3.py-1.rounded-full.border.border-slate-700 {
+    border-color: rgba(255,255,255,0.15); /* Border tombol filter pasif */
+    color: #CBD5E0;
+    background-color: #1A1D2C;
+    font-weight: 500;
+}

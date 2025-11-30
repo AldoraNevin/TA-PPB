@@ -1,0 +1,71 @@
+.champ-wrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.champ-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #000;
+  padding: 4px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Scale ketika hover */
+.champ-wrapper:hover .champ-icon {
+  transform: scale(1.12);
+}
+
+/* Outline border cost */
+.cost-1 { box-shadow: 0 0 0 3px #45ff3a inset; }
+.cost-2 { box-shadow: 0 0 0 3px #37c7ff inset; }
+.cost-3 { box-shadow: 0 0 0 3px #c43aff inset; }
+.cost-4 { box-shadow: 0 0 0 3px #ff7b00 inset; }
+.cost-5 { box-shadow: 0 0 0 3px #ffe600 inset; }
+
+/* Cost badge */
+.champ-cost {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  background: #ff1e56;
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 82px;
+  background: rgba(0,0,0,0.8);
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  transition: all .2s ease;
+}
+
+.champ-wrapper:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}

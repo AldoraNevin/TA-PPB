@@ -1,0 +1,218 @@
+.tl-tierlist-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  padding-top: 40px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.tl-page-title {
+  font-size: 56px;
+  font-weight: 900;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tl-page-title img {
+  width: 60px;
+  height: 60px;
+}
+
+.tl-yellow {
+  color: #ffd700;
+}
+
+/* Tabs */
+.tl-tab-row {
+  display: flex;
+  gap: 40px;
+  font-size: 18px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #2a2a2a;
+  padding-bottom: 0;
+}
+
+.tl-tab {
+  opacity: 0.5;
+  cursor: pointer;
+  padding: 12px 0;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.tl-tab:hover {
+  opacity: 0.8;
+}
+
+.tl-tab.active {
+  opacity: 1;
+  border-bottom: 3px solid #ffd700;
+}
+
+/* Search and Filter Bar */
+.tl-filter-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.tl-search-box,
+.tl-filter-dropdown {
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: white;
+  font-size: 14px;
+}
+
+/* Tier rows */
+.tl-tier-row {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+/* Tier label left */
+.tl-tier-label {
+  min-width: 120px;
+  width: 120px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.tl-tier-label::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 2px dashed rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.tl-tier-letter {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+  color: #000;
+}
+
+.tl-tier-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin-top: 4px;
+}
+
+/* Comp box */
+.tl-comp-box {
+  flex: 1;
+  padding: 28px 32px;
+  border: 3px solid;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: all 0.3s ease;
+}
+
+.tl-comp-box:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateX(4px);
+}
+
+.tl-champ-icon {
+  width: 70px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  object-fit: contain;
+  background: #000;
+  padding: 3px;
+}
+
+.tl-champ-icon:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* Cost indicator on champions */
+.tl-champ-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tl-champ-cost {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: #e91e63;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: white;
+  border: 2px solid #000;
+}
+
+/* Tooltip */
+.tl-tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 13px;
+  transition: 0.15s;
+}
+
+.tl-champ-wrapper:hover .tl-tooltip {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tl-tierlist-container {
+    width: 95%;
+  }
+  
+  .tl-tier-label {
+    min-width: 100px;
+    width: 100px;
+  }
+  
+  .tl-tier-letter {
+    font-size: 48px;
+  }
+  
+  .tl-champ-icon {
+    width: 60px;
+    height: 60px;
+  }
+}

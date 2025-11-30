@@ -1,0 +1,716 @@
+/* ============================================================
+   GUIDES PAGE — NAMESPACE ONLY FOR THIS PAGE
+   Prevents conflict with builder.css or other pages
+   ============================================================ */
+
+.guides-wrapper {
+  min-height: auto;
+  height: auto;
+  min-height: 100%;
+  height: auto;
+  background: linear-gradient(180deg, #000000 0%, #0f0a1a 100%);
+  padding: 24px;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #fff;
+  display: block;
+}
+
+/* ================= TABS ================= */
+
+.guides-wrapper .tabs-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+  padding-bottom: 8px;
+}
+
+.guides-wrapper .tab-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s;
+}
+
+.guides-wrapper .tab-btn.active {
+  color: #fff;
+  background: rgba(139, 92, 246, 0.2);
+  border-bottom: 2px solid #8b5cf6;
+}
+
+/* ================= SEARCH & FILTER ================= */
+
+.guides-wrapper .header-controls,
+.guides-wrapper .guides-header-controls {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.guides-wrapper .search-box {
+  position: relative;
+  flex: 1;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.guides-wrapper .search-box input {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #2d2250;
+  color: #fff;
+  font-size: 14px;
+}
+
+.guides-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+/* ================= COST FILTER ================= */
+
+.guides-wrapper .cost-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #2d2250;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.15s;
+}
+
+.guides-wrapper .reset-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #2d2250;
+  font-size: 18px;
+}
+
+/* ACTIVE COST COLORS */
+.guides-wrapper .cost-1 { background: #374151 !important; border-color: #6b7280 !important; }
+.guides-wrapper .cost-2 { background: #166534 !important; border-color: #22c55e !important; }
+.guides-wrapper .cost-3 { background: #1e40af !important; border-color: #3b82f6 !important; }
+.guides-wrapper .cost-4 { background: #7c3aed !important; border-color: #a855f7 !important; }
+.guides-wrapper .cost-5 { background: #d97706 !important; border-color: #f59e0b !important; }
+
+/* ================= CHAMP GRID ================= */
+
+.guides-wrapper .champ-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 16px;
+}
+
+.guides-wrapper .champ-card {
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: linear-gradient(180deg, #231740 0%, #1a1230 100%);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.guides-wrapper .champ-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.guides-wrapper .champ-img-wrapper {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.guides-wrapper .champ-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.guides-wrapper .img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.75) 0%, transparent 60%);
+}
+
+/* BORDER COLORS */
+.guides-wrapper .border-1 { border: 2px solid #6b7280; }
+.guides-wrapper .border-2 { border: 2px solid #22c55e; }
+.guides-wrapper .border-3 { border: 2px solid #3b82f6; }
+.guides-wrapper .border-4 { border: 2px solid #a855f7; }
+.guides-wrapper .border-5 { border: 2px solid #f59e0b; }
+/* ============================================================
+   TRAITS INSIDE CHAMP CARDS (GUIDES ONLY)
+   ============================================================ */
+
+.guides-wrapper .trait-list {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.guides-wrapper .trait-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8);
+  background: rgba(0,0,0,0.45);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.guides-wrapper .trait-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+/* ================= BOTTOM SECTION OF CHAMP CARD ================= */
+
+.guides-wrapper .card-bottom {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,.2);
+}
+
+.guides-wrapper .champ-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.guides-wrapper .cost-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.guides-wrapper .dot {
+  color: #fbbf24;
+}
+
+/* ============================================================
+   ITEMS TAB
+   ============================================================ */
+
+.guides-wrapper .items-container {
+  width: 100%;
+}
+
+.guides-wrapper .filter-select {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #2d2250;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.guides-wrapper .item-count {
+  padding: 10px 16px;
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.8);
+}
+
+.guides-wrapper .items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ================= ITEM CARD ================= */
+
+.guides-wrapper .item-card {
+  background: linear-gradient(180deg, #231740 0%, #1a1230 100%);
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+
+.guides-wrapper .item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.guides-wrapper .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.guides-wrapper .item-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  flex: 1;
+}
+
+/* TYPE BADGES */
+.guides-wrapper .item-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.guides-wrapper .item-basic {
+  border-color: #6b7280;
+}
+.guides-wrapper .item-combined {
+  border-color: #3b82f6;
+}
+.guides-wrapper .item-shadow {
+  border-color: #a855f7;
+}
+.guides-wrapper .item-radiant {
+  border-color: #f59e0b;
+}
+
+.guides-wrapper .item-badge.item-basic {
+  background: #374151;
+  color: #d1d5db;
+}
+.guides-wrapper .item-badge.item-combined {
+  background: #1e40af;
+  color: #dbeafe;
+}
+.guides-wrapper .item-badge.item-shadow {
+  background: #7c3aed;
+  color: #e9d5ff;
+}
+.guides-wrapper .item-badge.item-radiant {
+  background: #d97706;
+  color: #fef3c7;
+}
+
+/* ================= COMPONENTS ================= */
+
+.guides-wrapper .item-components {
+  margin-bottom: 12px;
+}
+
+.guides-wrapper .components-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.guides-wrapper .component-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.guides-wrapper .component-tag {
+  font-size: 12px;
+  background: rgba(255,255,255,0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ================= DESCRIPTION ================= */
+
+.guides-wrapper .item-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ================= EFFECTS ================= */
+
+.guides-wrapper .item-effects {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 12px;
+}
+
+.guides-wrapper .effects-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.guides-wrapper .effects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.guides-wrapper .effect-item {
+  font-size: 12px;
+}
+
+.guides-wrapper .effect-key {
+  color: rgba(255,255,255,0.5);
+}
+
+.guides-wrapper .effect-value {
+  color: #fff;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+/* ============================================================
+   AUGMENTS TAB
+   ============================================================ */
+
+.guides-wrapper .augment-card {
+  background: linear-gradient(180deg, #231740 0%, #1a1230 100%);
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Color Variants */
+.guides-wrapper .augment-silver {
+  border-color: #9ca3af;
+}
+.guides-wrapper .augment-gold {
+  border-color: #fbbf24;
+}
+.guides-wrapper .augment-prismatic {
+  border-color: #a855f7;
+  background: linear-gradient(180deg, #3b1a5f 0%, #1a1230 100%);
+}
+
+/* Header */
+.guides-wrapper .augment-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Augment Name */
+.guides-wrapper .augment-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.guides-wrapper .augment-prismatic .augment-name {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description */
+.guides-wrapper .augment-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Effects */
+.guides-wrapper .augment-effects {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.guides-wrapper .augment-effects .effects-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+}
+
+.guides-wrapper .augment-effects .effects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.guides-wrapper .augment-effects .effect-item {
+  background: rgba(255,255,255,0.05);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+/* ============================================================
+   LOADING STATE
+   ============================================================ */
+
+.guides-wrapper .items-loading,
+.guides-wrapper .items-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+}
+
+.guides-wrapper .spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(139, 92, 246, 0.2);
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.guides-wrapper .items-loading p {
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+}
+
+/* ============================================================
+   ERROR STATE
+   ============================================================ */
+
+.guides-wrapper .error-icon {
+  font-size: 48px;
+}
+
+.guides-wrapper .items-error p {
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+}
+
+.guides-wrapper .retry-btn {
+  padding: 10px 24px;
+  background: #8b5cf6;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.guides-wrapper .retry-btn:hover {
+  background: #7c3aed;
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   NO RESULTS STATE
+   ============================================================ */
+
+.guides-wrapper .no-results {
+  text-align: center;
+  padding: 48px 24px;
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+}
+
+/* ============================================================
+   RESPONSIVE BEHAVIOR
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .guides-wrapper .champ-grid,
+  .guides-wrapper .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+
+  .guides-wrapper {
+    padding: 16px;
+  }
+
+  /* Tabs */
+  .guides-wrapper .tabs-header {
+    gap: 4px;
+  }
+
+  .guides-wrapper .tab-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  /* Header controls stack vertically */
+  .guides-wrapper .guides-header-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Search box expands on mobile */
+  .guides-wrapper .search-box {
+    max-width: 100%;
+  }
+
+  /* Grids shrink for mobile */
+  .guides-wrapper .champ-grid,
+  .guides-wrapper .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .guides-wrapper .item-count {
+    text-align: center;
+  }
+
+  /* Text adjustments */
+  .guides-wrapper .item-name,
+  .guides-wrapper .augment-name {
+    font-size: 16px;
+  }
+}
+
+/* ============================================================
+   HOVER & ANIMATION IMPROVEMENTS
+   ============================================================ */
+
+/* Smooth card lift on hover */
+.guides-wrapper .champ-card:hover,
+.guides-wrapper .item-card:hover,
+.guides-wrapper .augment-card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Shimmer animation for prismatic augment */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.guides-wrapper .augment-prismatic::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #a855f7,
+    #ec4899,
+    #a855f7,
+    transparent
+  );
+  animation: shimmer 3s linear infinite;
+  opacity: 0.7;
+}
+
+/* Slight fade-in animation on load */
+.guides-wrapper .champ-card,
+.guides-wrapper .item-card,
+.guides-wrapper .augment-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override global builder CSS */
+.champ-grid {
+    max-height: none !important;
+    overflow: visible !important;
+    padding-right: 0 !important;
+}
+
+/* Mobile responsiveness: single column for small screens */
+@media (max-width: 640px) {
+  .guides-wrapper .champ-grid,
+  .guides-wrapper .items-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .guides-wrapper .guides-header-controls {
+    gap: 8px;
+  }
+
+  .guides-wrapper .search-box {
+    max-width: 100%;
+    min-width: 100%;
+    flex: 1;
+  }
+
+  .guides-wrapper .cost-btn,
+  .guides-wrapper .reset-btn,
+  .guides-wrapper .filter-select {
+    font-size: 12px;
+    padding: 8px;
+    width: auto;
+  }
+
+  .guides-wrapper .item-count {
+    width: 100%;
+    text-align: center;
+  }
+
+  .guides-wrapper .champ-img-wrapper {
+    height: 120px;
+  }
+
+  .guides-wrapper .tabs-header {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+
+  .guides-wrapper .tab-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
