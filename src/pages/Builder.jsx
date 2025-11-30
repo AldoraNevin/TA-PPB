@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import supabase from "../services/supabaseClient";
 import TraitsPanel from "../components/TraitsPanel";
-import "../styles/builder.css";
+import "../styles/Builder.css";
 
 import { saveBuild } from "../services/builderService";
 import { postBuilderToMetaRead } from "../services/metareadService";
