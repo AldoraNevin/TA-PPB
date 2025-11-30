@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import MenuCard from "../components/MenuCard";
-import "../styles/Home.css";
+import "../styles/home.css";
 
 export default function Home() {
   const navigate = useNavigate();
